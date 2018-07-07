@@ -4,5 +4,23 @@ mostrar el resulto por medio de "ALERT"*/
 function sumar()
 {
 
+	var numeroUno;
+	var numeroDos;
+	var resultado;
+
+	numeroUno=document.getElementById ('numeroUno').value;
+	numeroDos=document.getElementById ('numeroDos').value;
+
+	numeroUno=parseInt (numeroUno);
+	numeroDos=parseInt (numeroDos);
+	/* el parseInt no lleva comillas*/
+
+	resultado= numeroUno+ numeroDos; 
+	/*Funcion SUMAR*/
+	
+	alert ("La suma es: "+ resultado);
+
+
+
 }
 
