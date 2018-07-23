@@ -8,32 +8,70 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  ”Usted pago X de IIBB.”, siendo X el impuesto que se pagó. 
 
  */
-
- function CalcularPrecio () 
+function CalcularPrecio () 
 {
- 	var cantLamp;
- 	var descuento;
- 	var precio;
- 	var precioDes;
- 	var marca;
+ 	var cantLamp=document.getElementById('Cantidad').value;
+ 	var precioDescuento;
+ 	var marca=document.getElementById('Marca').value;
+ 	var ingresosBrutos;
+ 	var precio=cantLamp*35;
 
- 	
- 	cantLamp=document.getElementById('Cantidad').value;
- 	precio=cantLamp*35;
+ 	if (cantLamp>5)
+ 	 {
+ 	 	precioDescuento=precio-(precio*50/100);
+ 	 }
+ 	else 
+ 	{
+ 		if (cantLamp==5) 
+ 		{ switch (marca)
 
- 	if (cantLamp>=6) 
- 	{	
- 		descuento=precio*0.5;
- 		document.getElementById('precioDescuento').value=descuento;
-	}
-	else
-	{
-		precio=cantLamp*35;
-		document.getElementById('precioDescuento').value=precio;
-	}
-		if (cantLamp==5&& marca "ArgentinaLuz") 
-		{
-			descuento=precio*0.4;
+ 			{	case "ArgentinaLuz":
+ 					precioDescuento= precio-(precio*40/100);
+ 					document.getElementById('precioDescuento').value=precioDescuento;
 
+ 				break;
+ 				default:
+				precioDescuento=precio-(precio*30/100);
+ 			}
 		}
+ 		if (cantLamp==4) 
+ 			{switch (marca)
+ 				{
+ 				case "ArgentinaLuz":
+ 				case "FelipeLamparas":
+ 				precioDescuento=precio-(precio*25/100);
+ 			 	break;
+ 			 	default:		
+ 					precioDescuento=precio-(precio*20/100);
+ 				}
+ 			}	
+ 		if (cantLamp==3) 
+ 		{
+ 			switch (marca)
+ 			{
+ 			case "ArgentinaLuz":
+ 				precioDescuento=precio-(precio*15/100);
+ 			break;
+ 			case "FelipeLamparas":
+ 				precioDescuento=precio-(precio*10/100);
+ 			break;
+ 			default:
+ 				precioDescuento=precio-(precio*5/100);
+ 			}
+ 		}	
+ 			else
+ 			{
+ 				precioDescuento=precio;
+ 			}
+ 		
+ 	}
+
+
+ 	if (precioDescuento>120) 
+ 	{
+ 		ingresosBrutos=precioDescuento*10/100;
+ 		precioDescuento=precioDescuento+ingresosBrutos;
+ 		alert (ingresosBrutos+" paga de IIBB");
+ 	}
+document.getElementById('precioDescuento').value=precioDescuento;
 }
