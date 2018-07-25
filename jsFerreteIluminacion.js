@@ -13,65 +13,72 @@ function CalcularPrecio ()
  	var cantLamp=document.getElementById('Cantidad').value;
  	var precioDescuento;
  	var marca=document.getElementById('Marca').value;
- 	var ingresosBrutos;
+ 	var ingreso;
  	var precio=cantLamp*35;
+ 	var precioFinal;
 
- 	if (cantLamp>5)
- 	 {
- 	 	precioDescuento=precio-(precio*50/100);
- 	 }
- 	else 
+ 	if (cantLamp>5) 
  	{
- 		if (cantLamp==5) 
- 		{ switch (marca)
-
- 			{	case "ArgentinaLuz":
- 					precioDescuento= precio-(precio*40/100);
- 					document.getElementById('precioDescuento').value=precioDescuento;
-
- 				break;
- 				default:
-				precioDescuento=precio-(precio*30/100);
- 			}
-		}
- 		if (cantLamp==4) 
- 			{switch (marca)
- 				{
- 				case "ArgentinaLuz":
- 				case "FelipeLamparas":
- 				precioDescuento=precio-(precio*25/100);
- 			 	break;
- 			 	default:		
- 					precioDescuento=precio-(precio*20/100);
- 				}
- 			}	
- 		if (cantLamp==3) 
- 		{
+ 		precioDescuento = precio*0.50;
+ 	}
+ 	else
+ 	{
+ 		if (cantLamp==5)
  			switch (marca)
  			{
- 			case "ArgentinaLuz":
- 				precioDescuento=precio-(precio*15/100);
- 			break;
- 			case "FelipeLamparas":
- 				precioDescuento=precio-(precio*10/100);
- 			break;
- 			default:
- 				precioDescuento=precio-(precio*5/100);
+ 				case "ArgentinaLuz"	:
+ 				precioDescuento= precio*0.40;
+ 				break;
+ 				default:
+ 				precioDescuento= precio*0.30;
  			}
- 		}	
+ 		else
+ 		{
+ 			if (cantLamp==4) 
+ 			{
+ 				switch (marca)
+ 				{
+ 					case "ArgentinaLuz": 
+ 					case "FelipeLamparas":
+ 					precioDescuento= precio*0.25;
+ 					break;
+ 					default:
+ 					precioDescuento= precio*0.20;
+
+ 				}
+ 			}	
  			else
  			{
- 				precioDescuento=precio;
+ 				if (cantLamp==3) 
+ 				{
+ 					switch (marca)
+ 					{
+ 						case "ArgentinaLuz":
+ 						precioDescuento= precio*0.15;
+ 						break;
+ 						case "FelipeLamparas":
+ 						precioDescuento= precio*0.10;
+ 						break;
+ 						default:
+ 						precioDescuento= precio*0.05;
+
+ 					}
+ 				}
  			}
- 		
- 	}
+ 			
+ 		}
 
-
+ 	document.getElementById('precioDescuento').value=precioDescuento;	
+	}
  	if (precioDescuento>120) 
  	{
- 		ingresosBrutos=precioDescuento*10/100;
- 		precioDescuento=precioDescuento+ingresosBrutos;
- 		alert (ingresosBrutos+" paga de IIBB");
+ 		ingreso= (precioDescuento*0.10);
+ 		precioFinal=ingreso+precioDescuento;
+ 		alert ("Usted pagó "+ingreso+" de IIBB");
+		document.getElementById('precioDescuento').value=precioFinal;
  	}
-document.getElementById('precioDescuento').value=precioDescuento;
+
+
+ 	
+
 }
