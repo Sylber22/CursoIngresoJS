@@ -19,7 +19,7 @@ function mostrar()
 		}
 		else
 		{
-			negativo = negativo+numero;
+			negativo = negativo*numero;
 		}
 	}
 		
