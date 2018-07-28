@@ -56,15 +56,15 @@ function mostrar()
 	 //los promedio se hacen afuera del while
 	 difPosNeg=positivos-negativos;
 
-	document.write ("la suma de los negativos es: "+negativos);
-	document.write (" la suma de los positivos es: "+positivos);
-	document.write (" la cantidad de  negativos es: "+cantNeg);
-	document.write (" la cantidad de  positivos es: "+cantPos);
-	document.write (" la cantidad de  ceros es: "+cantidadCeros);
-	document.write (" la cantidad de  numeros pares es: "+cantidadPares);
-	document.write (" el promedio de negativos es: "+promedioNegativos);
-	document.write (" el promedio de positivos es: "+promedioPositivos);
-	document.write (" la diferencia entre positivos y negativos es: "+difPosNeg);
+	document.write ("la suma de los negativos es: "+negativos)+"<br>";
+	document.write (" la suma de los positivos es: "+positivos)+"<br>";
+	document.write (" la cantidad de  negativos es: "+cantNeg)+"<br>";
+	document.write (" la cantidad de  positivos es: "+cantPos)+"<br>";
+	document.write (" la cantidad de  ceros es: "+cantidadCeros)+"<br>";
+	document.write (" la cantidad de  numeros pares es: "+cantidadPares)+"<br>";
+	document.write (" el promedio de negativos es: "+promedioNegativos)+"<br>";
+	document.write (" el promedio de positivos es: "+promedioPositivos)+"<br>";
+	document.write (" la diferencia entre positivos y negativos es: "+difPosNeg)+"<br>";
 
 
 

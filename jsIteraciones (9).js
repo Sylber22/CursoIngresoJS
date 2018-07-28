@@ -2,31 +2,41 @@ function mostrar()
 {
 
 	var contador=0;
-	var maximo, minimo;
+	var maximo;
+	var minimo;
+	var numero;
+	var flag=false; // se usa la bandera para el primer numero
 	// declarar variables
 	
-	var respuesta='si';
+	var respuesta="si";
 
-	while(respuesta!='no')
+	while(respuesta!="no")
 	{
-		numero =prompt ("Ingrese un numero");
-		numero = parseInt (numero);
 		contador ++;
-		respuesta= prompt ("Desea continuar?");
+		numero =prompt ("Ingrese un numero");
+		
+		if (flag==false || numero>maximo) 
+		{
+			maximo=numero;
+			flag= true;
+		}
+		/*		
+		if (contador==0) 
+		{
+			maximo=numero;
+			minimo=numero;
+		}
 		if (numero>maximo) 
 		{
-			numero= maximo;
+			maximo=numero;
 		}
-		else
+		if (numero<minimo) 
 		{
-			if (numero<minimo) 
-			{
-				numero=minimo;
-			}
-		}
+			minimo=numero;
+		}*/
+	respuesta= prompt ("Desea continuar?");	
 	}
 
 document.getElementById('maximo').value=maximo;
 document.getElementById('minimo').value=minimo;
-
-}//FIN DE LA FUNCIÓN
+}
