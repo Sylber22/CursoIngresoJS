@@ -1,23 +1,29 @@
 function mostrar()
 {
 	var precio;
-	var porcentajeDes;
-	var descuentoDin;
+	var porcentaje;
+	var porcentajeDeDescuento;
+	var descuentoEnDinero;
+	var precioConDescuento;
 	var iva;
-	var resultadoFinal;
+	var elPrecioFinal;
 
-	precio= prompt ("Poner precio");
-	porcentajeDes= prompt ("poner porcentaje de descuento");
+	precio= prompt("Ingrese el precio");
+	precio=parseInt (precio);
+	porcentaje= prompt("Ingrese el porcentaje de descuento");
+	porcentaje= parseInt (porcentaje);
+
+	porcentajeDeDescuento=porcentaje/100;
+	descuentoEnDinero=precio*porcentajeDeDescuento;
+	precioConDescuento=precio- descuentoEnDinero;
+	iva= precioConDescuento* 0.21;
+	iva =parseInt (iva);
+	elPrecioFinal=precioConDescuento+iva;
+
 	
-	descuentoDin= precio*porcentajeDes/100;
-	precioDes=precio-descuentoDin;
-	iva=precio*0.21;
 
-	resultadoFinal = precioDes + iva;
-
-	alert ("1- El descuento de dinero es de $ "+descuentoDin+ " 2-el precio con descuento es de $ "+precioDes+" el IVA es de "+iva "%");
-	document.getElementById('elPrecioFinal').value = resultadoFinal;
-
+	alert ("El descuento en $$"+ descuentoEnDinero+ " .El precio con descuento es de $$ "+precioConDescuento+" el IVA es de "+iva);
+	document.getElementById('elPrecioFinal').value=elPrecioFinal;
 
 
 }
