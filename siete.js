@@ -1,91 +1,74 @@
+/*
+
+
+*/
+
 function mostrar()
 {
- 	
- 	var nota;
- 	var sexo;
- 	var edad;
- 	var contador=0;
- 	var acumulador=0;
- 	var notaMasBaja;
- 	var notaMasBajaSexo;
- 	var cantVarones=0;
- 	var masJoven;
- 	var notaMasJoven;
-	var masJovenSexo;
- 	var primerMujer=0;
- 	var notaPrimerMujer;
- 	var edadPrimerMujer;
- 	var flag=0;
 
-	
+	var sexo;
+	var nota;
+	var promedio;
+	var sexoNotaMasBaja;
+	var notaMasBaja;
+	var varones=0;
+	var acumulador=0;
+	var contador=0;
+	var acumuladorDeNotas=0;
 
- 	
- 	while (contador <5)
+
+	while (contador<2)
 	{
-		contador ++;
-		nota=prompt ("Ingrese nota");
-		nota=parseInt (nota);
-	
-		while (isNaN(nota)|| nota <0 || nota >10)
-		{
-			nota=prompt ("Ingrese nota");
-			nota=parseInt (nota);
-		}
-			acumulador=acumulador+nota;
+		contador++;
+		nota = prompt ("Ingrese su nota");
+		nota = parseInt (nota);
+				
+			while (isNaN(nota)|| nota <0 || nota >10) 
+			{
+				nota = prompt ("Ingrese su nota");
+				nota = parseInt (nota);
+			}
 
-		sexo= prompt ("Ingrese ´f´ para femenino y ´m´ para masculino");
-		while (sexo!= "f" && sexo!="m")
-		{
-			sexo=prompt ("Ingrese ´f´ para femenino y ´m´ para masculino");
-		}
+		acumulador=acumulador+nota;
+		acumuladorDeNotas++;	
 
-		edad=prompt ("ingresar edad");
-		edad= parseInt (edad);
-		while (isNaN(edad)||edad<0 || edad>100 )
-		{
-			edad=prompt ("ingresar edad");
-			edad= parseInt (edad);
-		}
-	
-		if (contador==1) 
+		sexo = prompt ("ingrese su sexo f para femenino y o m para masculino");
+			while (sexo!="f" && sexo != "m") 
+			{
+				sexo = prompt ("ingrese su sexo f para femenino y o m para masculino");
+			}
+
+
+			if (contador==1) 
 			{
 				notaMasBaja=nota;
-				notaMasBajaSexo=sexo;
-				masJoven=edad;
-				masJovenSexo=sexo;
-				primerMujer=flag;
-				notaPrimerMujer=nota;
+				sexoNotaMasBaja=sexo;
+		
 			}
-		else
+			else
 			{
+
 				if (nota<notaMasBaja) 
 				{
 					notaMasBaja=nota;
-					notaMasBajaSexo=sexo;
-				}
-
-				if (sexo == "m" && edad >18 && nota>5)
-				{
-					cantVarones ++;
-				}
-				if (edad<masJoven)
-				{
-					notaMasJoven=nota;
-					masJovenSexo=sexo;
-				}
-				if ( flag=0 && sexo=="f") 
-				{
-					flag=1;
-					notaPrimerMujer=nota;
-					edadPrimerMujer=edad;
-				}
+					sexoNotaMasBaja=sexo;
+				}	
+				
 			}
+
+			if (sexo=="m"&& nota>5 )
+				{
+					varones++;
+				}
 	}
-	promedio= acumulador/5;
-	
-	alert ("El promedio de las notas totales es "+promedio+" .La nota más baja es "+notaMasBaja+" y el sexo de esa persona es "+notaMasBajaSexo+ " .La cantidad de varones mayores a 18, que su nota haya sido mayor o igual a 6 es "+cantVarones+
-		" El sexo y la nota del más joven es "+masJovenSexo+" y "+notaMasJoven+" La edad "+edadPrimerMujer+" y la nota de la primera mujer ingresada "+notaPrimerMujer);
+			
+	promedio=acumuladorDeNotas/5;
 
-
-
+	alert (" El promedio de las notas totales es "+promedio+" La nota más baja y el sexo de esa persona."+notaMasBaja+" y "+sexoNotaMasBaja+" La cantidad de varones que su nota haya sido mayor o igual a 6 es "+varones);
 }
+
+
+
+
+
+
